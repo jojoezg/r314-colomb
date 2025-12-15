@@ -172,6 +172,58 @@ a:hover {
   color: #c9d1d9;
 }
 
+/* Lightbox / Slider styles */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5,8,20,0.85);
+  z-index: 1000;
+  padding: 40px 20px;
+}
+.lightbox[aria-hidden="false"] { display: flex; }
+.lightbox-stage {
+  max-width: 1100px;
+  max-height: 80vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.lightbox-image {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  background: #111;
+}
+.lightbox-caption {
+  margin-top: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  background: transparent;
+  border: 0;
+  color: var(--fg);
+  font-size: 28px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+.lightbox-close { position: absolute; right: 20px; top: 20px; font-size: 22px; }
+.lightbox-prev { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); }
+.lightbox-next { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); }
+
+@media (max-width: 700px) {
+  .lightbox { padding: 20px; }
+  .lightbox-prev, .lightbox-next { display: none; }
+}
+
 /* Media Queries */
 @media (max-width: 900px) {
   .features-grid {
