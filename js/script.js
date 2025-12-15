@@ -51,6 +51,8 @@
 
     links.forEach((a, i) => {
       a.addEventListener('click', (e) => {
+        // Allow opening in a new tab or via modifier keys / middle click
+        if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
         e.preventDefault();
         show(i);
       });
